@@ -120,8 +120,8 @@
             };
         }
 
-        var zoom = d3.behavior.zoom()
-            .on("zoomstart", function() {
+        var zoom = d3.zoom()
+            .on("start", function() {
                 op = op || newOp(d3.mouse(this), zoom.scale());  // a new operation begins
             })
             .on("zoom", function() {
@@ -145,7 +145,7 @@
                 op.manipulator.move(op.type === "zoom" ? null : currentMouse, currentScale);
                 dispatch.trigger("move");
             })
-            .on("zoomend", function() {
+            .on("end", function() {
                 op.manipulator.end();
                 if (op.type === "click") {
                     dispatch.trigger("click", op.startMouse, globe.projection.invert(op.startMouse) || []);

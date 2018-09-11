@@ -689,7 +689,7 @@ var products = function() {
     }
 
     return {
-        overlayTypes: d3.set(_.keys(FACTORIES)),
+        overlayTypes: new Set(_.keys(FACTORIES)),
         productsFor: productsFor
     };
 

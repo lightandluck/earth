@@ -122,7 +122,7 @@
 
         var zoom = d3.zoom()
             .on("start", function() {
-                op = op || newOp(d3.mouse(this), zoom.scale());  // a new operation begins
+                op = op || newOp(d3.mouse(this), zoom.transform.k);  // a new operation begins
             })
             .on("zoom", function() {
                 var currentMouse = d3.mouse(this), currentScale = d3.event.scale;

@@ -213,6 +213,7 @@
         var cancel = this.cancel;
         report.status("Downloading...");
         return µ.loadJson(resource).then(function(topo) {
+            console.log("stopped at buildMesh");
             if (cancel.requested) return null;
             log.time("building meshes");
             var o = topo.objects;
@@ -256,6 +257,7 @@
             return product.load(cancel);
         });
         return when.all(loaded).then(function(products) {
+            console.log("stopped at buildGrids");
             log.time("build grids");
             return {primaryGrid: products[0], overlayGrid: products[1] || products[0]};
         }).ensure(function() {
@@ -1095,7 +1097,7 @@
         bindButtonToConfiguration("#animate-currents", {param: "ocean", surface: "surface", level: "currents"});
 
         // Add handlers for all overlay buttons.
-        products.overlayTypes.forEach(function(type) {
+        Object.keys(products.overlayTypes).forEach(function(type) {
             bindButtonToConfiguration("#overlay-" + type, {overlayType: type});
         });
         bindButtonToConfiguration("#overlay-wind", {param: "wind", overlayType: "default"});

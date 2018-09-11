@@ -112,7 +112,7 @@ svg.append("path")
 
 d3.json("data/world-110m.json")
   .then(drawWorld)
-  // .then(drawCities);
+  .then(drawCities);
 
   // crazy zoom
 // d3.select("svg").call(d3.zoom().on("zoom", function () {
@@ -138,7 +138,7 @@ function drawWorld (world) {
 }
 
 function drawCities () {
-  d3.csv('world-data/cities.1.csv').then(data => {
+  d3.csv('data/cities.1.csv').then(data => {
     svg.selectAll('circle')
       .data(data)
       .enter()

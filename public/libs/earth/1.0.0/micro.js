@@ -320,15 +320,8 @@ var µ = function() {
      * object describing the reason: {status: http-status-code, message: http-status-text, resource:}.
      */
     function loadJson(resource) {
-        var d = when.defer();
-        d3.json(resource, function(error, result) {
-            return error ?
-                !error.status ?
-                    d.reject({status: -1, message: "Cannot load resource: " + resource, resource: resource}) :
-                    d.reject({status: error.status, message: error.statusText, resource: resource}) :
-                d.resolve(result);
-        });
-        return d.promise;
+        return fetch(resource)
+            .then(response => response.json());
     }
 
     /**

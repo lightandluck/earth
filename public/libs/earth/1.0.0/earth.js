@@ -211,9 +211,8 @@
      */
     function buildMesh(resource) {
         var cancel = this.cancel;
-        report.status("Downloading...");
+        report.status("Downloading mesh...");
         return µ.loadJson(resource).then(function(topo) {
-            console.log("stopped at buildMesh");
             if (cancel.requested) return null;
             log.time("building meshes");
             var o = topo.objects;
@@ -247,7 +246,7 @@
     var downloadsInProgress = 0;
 
     function buildGrids() {
-        report.status("Downloading...");
+        report.status("Downloading grids...");
         log.time("build grids");
         // UNDONE: upon failure to load a product, the unloaded product should still be stored in the agent.
         //         this allows us to use the product for navigation and other state.
@@ -257,7 +256,6 @@
             return product.load(cancel);
         });
         return when.all(loaded).then(function(products) {
-            console.log("stopped at buildGrids");
             log.time("build grids");
             return {primaryGrid: products[0], overlayGrid: products[1] || products[0]};
         }).ensure(function() {

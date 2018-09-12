@@ -62,7 +62,7 @@ var globes = function() {
              *          the bounds of the current projection clamped to the specified view.
              */
             bounds: function(view) {
-                return clampedBounds(d3.geo.path().projection(this.projection).bounds({type: "Sphere"}), view);
+                return clampedBounds(d3.geoPath().projection(this.projection).bounds({type: "Sphere"}), view);
             },
 
             /**
@@ -71,7 +71,7 @@ var globes = function() {
              */
             fit: function(view) {
                 var defaultProjection = this.newProjection(view);
-                var bounds = d3.geo.path().projection(defaultProjection).bounds({type: "Sphere"});
+                var bounds = d3.geoPath().projection(defaultProjection).bounds({type: "Sphere"});
                 var hScale = (bounds[1][0] - bounds[0][0]) / defaultProjection.scale();
                 var vScale = (bounds[1][1] - bounds[0][1]) / defaultProjection.scale();
                 return Math.min(view.width / hScale, view.height / vScale) * 0.9;
@@ -156,7 +156,7 @@ var globes = function() {
              * @returns the context
              */
             defineMask: function(context) {
-                d3.geo.path().projection(this.projection).context(context)({type: "Sphere"});
+                d3.geoPath().projection(this.projection).context(context)({type: "Sphere"});
                 return context;
             },
 
@@ -166,7 +166,7 @@ var globes = function() {
              * @param foregroundSvg the foreground SVG container.
              */
             defineMap: function(mapSvg, foregroundSvg) {
-                var path = d3.geo.path().projection(this.projection);
+                var path = d3.geoPath().projection(this.projection);
                 var defs = mapSvg.append("defs");
                 defs.append("path")
                     .attr("id", "sphere")
@@ -243,7 +243,7 @@ var globes = function() {
                 return d3.geoOrthographic().rotate(currentPosition()).precision(0.1).clipAngle(90);
             },
             defineMap: function(mapSvg, foregroundSvg) {
-                var path = d3.geo.path().projection(this.projection);
+                var path = d3.geoPath().projection(this.projection);
                 var defs = mapSvg.append("defs");
                 var gradientFill = defs.append("radialGradient")
                     .attr("id", "orthographic-fill")
@@ -299,7 +299,7 @@ var globes = function() {
                 return d3.geo.polyhedron.waterman().rotate([20, 0]).precision(0.1);
             },
             defineMap: function(mapSvg, foregroundSvg) {
-                var path = d3.geo.path().projection(this.projection);
+                var path = d3.geoPath().projection(this.projection);
                 var defs = mapSvg.append("defs");
                 defs.append("path")
                     .attr("id", "sphere")

@@ -296,7 +296,7 @@
         // Create new map svg elements.
         globe.defineMap(d3.select("#map"), d3.select("#foreground"));
 
-        var path = d3.geo.path().projection(globe.projection).pointRadius(7);
+        var path = d3.geoPath().projection(globe.projection).pointRadius(7);
         var coastline = d3.select(".coastline");
         var lakes = d3.select(".lakes");
         d3.selectAll("path").attr("d", path);  // do an initial draw -- fixes issue with safari

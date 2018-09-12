@@ -688,14 +688,14 @@ var products = function() {
         return results.filter(µ.isValue);
     }
 
-    function overlayTypes(FACTORIES) {
+    function i(FACTORIES) {
         Object.keys(FACTORIES).forEach(key => {
             this[key] = !0;
         })
     }
 
     return {
-        overlayTypes: new overlayTypes(FACTORIES),
+        overlayTypes: new i(FACTORIES),
         productsFor: productsFor
     };
 

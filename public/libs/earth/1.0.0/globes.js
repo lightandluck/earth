@@ -177,11 +177,11 @@ var globes = function() {
                     .attr("class", "background-sphere");
                 mapSvg.append("path")
                     .attr("class", "graticule")
-                    .datum(d3.geo.graticule())
+                    .datum(d3.geoGraticule())
                     .attr("d", path);
                 mapSvg.append("path")
                     .attr("class", "hemisphere")
-                    .datum(d3.geo.graticule().minorStep([0, 90]).majorStep([0, 90]))
+                    .datum(d3.geoGraticule().minorStep([0, 90]).majorStep([0, 90]))
                     .attr("d", path);
                 mapSvg.append("path")
                     .attr("class", "coastline");
@@ -261,11 +261,11 @@ var globes = function() {
                     .attr("fill", "url(#orthographic-fill)");
                 mapSvg.append("path")
                     .attr("class", "graticule")
-                    .datum(d3.geo.graticule())
+                    .datum(d3.geoGraticule())
                     .attr("d", path);
                 mapSvg.append("path")
                     .attr("class", "hemisphere")
-                    .datum(d3.geo.graticule().minorStep([0, 90]).majorStep([0, 90]))
+                    .datum(d3.geoGraticule().minorStep([0, 90]).majorStep([0, 90]))
                     .attr("d", path);
                 mapSvg.append("path")
                     .attr("class", "coastline");
@@ -315,7 +315,7 @@ var globes = function() {
                 mapSvg.append("path")
                     .attr("class", "graticule")
                     .attr("clip-path", "url(#clip)")
-                    .datum(d3.geo.graticule())
+                    .datum(d3.geoGraticule())
                     .attr("d", path);
                 mapSvg.append("path")
                     .attr("class", "coastline")

@@ -181,7 +181,7 @@ var globes = function() {
                     .attr("d", path);
                 mapSvg.append("path")
                     .attr("class", "hemisphere")
-                    .datum(d3.geoGraticule().minorStep([0, 90]).majorStep([0, 90]))
+                    .datum(d3.geoGraticule().stepMinor([0, 90]).stepMajor([0, 90]))
                     .attr("d", path);
                 mapSvg.append("path")
                     .attr("class", "coastline");
@@ -265,7 +265,7 @@ var globes = function() {
                     .attr("d", path);
                 mapSvg.append("path")
                     .attr("class", "hemisphere")
-                    .datum(d3.geoGraticule().minorStep([0, 90]).majorStep([0, 90]))
+                    .datum(d3.geoGraticule().stepMinor([0, 90]).stepMajor([0, 90]))
                     .attr("d", path);
                 mapSvg.append("path")
                     .attr("class", "coastline");

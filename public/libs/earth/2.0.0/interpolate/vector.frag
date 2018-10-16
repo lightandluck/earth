@@ -1,0 +1,1 @@
+module.exports = "\nfloat scalarize(in vec4 h) {\n    float isMissing = step(7e37, h.x);\n    return length((1.0 - isMissing) * h.xw) + isMissing * 7e37;\n}\n"

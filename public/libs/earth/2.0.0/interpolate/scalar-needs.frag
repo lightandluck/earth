@@ -1,0 +1,1 @@
+module.exports = "\nfloat scalarize(in vec4 h) {\n    return h.x;\n}\n"
